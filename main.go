@@ -3,12 +3,22 @@ package main
 import (
 	"coolGame/lib"
 	"fmt"
-	"math"
+	"time"
 )
 
 func main() {
 	player := lib.NewPlayer("jack")
 	fmt.Println(player)
-	fmt.Println(1 / 50)
-	fmt.Println(math.Ceil(float64((1.0 / 50) * 100)))
+	boss := lib.NewBoss()
+	battle := lib.NewBattle(boss, player)
+	fmt.Println(battle.Boss)
+	// battleDone := make(chan bool)
+
+	t := time.Tick(1 * time.Second)
+	i := 0
+	for now := range t {
+		fmt.Println(i, now)
+		i += 1
+	}
+
 }

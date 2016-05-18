@@ -46,10 +46,12 @@ func NewPlayer(name string) *Player {
 		Health:       maxHealth,
 		MaxMana:      maxMana,
 		Mana:         maxMana,
-		Attack:       p.getBaseAttact(),
-		Defend:       p.getBaseDefend(),
+		Attack:       0,
+		Defend:       0,
 		Dodge:        0,
 	}
+	p.Attack = p.getBaseAttact()
+	p.Defend = p.getBaseDefend()
 	return p
 }
 
